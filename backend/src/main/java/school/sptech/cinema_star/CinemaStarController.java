@@ -8,6 +8,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.sql.PreparedStatement;
@@ -30,6 +31,21 @@ public class CinemaStarController {
         List<CinemaStar> filmes = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(CinemaStar.class));
 
         return ResponseEntity.status(200).body(filmes);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CinemaStar> buscarFilmePorId(@PathVariable Integer id) {
+
+        String sql = "SELECT * FROM cinema WHERE id = ?";
+        List<CinemaStar> filmes = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(CinemaStar.class), id);
+
+        if(filmes.isEmpty()) {
+            return ResponseEntity.status(404).build();
+        }
+
+        CinemaStar filme = filmes.get(0);
+
+        return ResponseEntity.status(200).body(filme);
     }
 
 
