@@ -1,5 +1,6 @@
 package school.sptech.cinema_star;
 
+import jdk.javadoc.doclet.Reporter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 import java.sql.PreparedStatement;
@@ -116,5 +118,22 @@ public class CinemaStarController {
 
     }
 
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removerFilme(@PathVariable Integer  id) {
+
+        String sql = "SELECT * FROM cinema WHERE id = ?";
+        List<CinemaStar> filmes = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(CinemaStar.class), id);
+
+        if (filmes.isEmpty()){
+            return ResponseEntity.status(404).build();
+        }
+
+        String sqlRemover = "DELETE FROM cinema WHERE id = ?";
+                jdbcTemplate.update(sqlRemover, id);
+
+        return ResponseEntity.status(204).build();
+
+    }
 
 }
