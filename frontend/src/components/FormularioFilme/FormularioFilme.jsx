@@ -8,11 +8,21 @@ function FormularioFilme() {
     const [genero, setGenero] = useState('')
     const [nota, setNota] = useState('')
 
+    function cadastrarFilme(event) {
+        event.preventDefault()   /*não p osso esquecer que isso serve pra não envia e não recarrega a pág*/
+
+        console.log(titulo)
+        console.log(diretor)
+        console.log(anoLancamento)
+        console.log(genero)
+        console.log(nota)
+    }
+
     return (
         <div className={styles.formulario}>
             <h2>Cadastrar filme</h2>
 
-            <form>
+            <form onSubmit={cadastrarFilme}>
                 <label type="text">Título</label>
                 <input id="titulo" type="text" placeholder="Digite o Título" value={titulo}
                        onChange={(event) => setTitulo(event.target.value)} />
@@ -34,5 +44,7 @@ function FormularioFilme() {
         </div>
     )
 }
+
+
 
 export default FormularioFilme
