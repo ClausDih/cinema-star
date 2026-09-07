@@ -1,0 +1,23 @@
+.formulario {
+    padding: 20px;
+}
+
+.formulario h2 {
+    font-size: 28px;
+}
+
+.formulario input {
+    display: block;
+    margin: 0 auto 10px;
+    padding: 10px;
+}
+
+.form {
+    align-content: center;
+}
+
+.formulario label {
+    display: block;
+    text-align: center;
+}
+

@@ -8,10 +8,21 @@
 }
 
 .titulo h1 {
-    font-size: 48px;
+    font-size: 56px;
     margin-bottom: 10px;
+    letter-spacing: 3px;
 }
 
 .titulo p {
     font-size: 20px;
+    margin-bottom: 30px;
 }
+
+.titulo button {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
