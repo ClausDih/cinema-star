@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 import java.sql.PreparedStatement;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/filmes")
+@CrossOrigin(origins = "http://localhost:5173")
 public class CinemaStarController {
 
     private final JdbcTemplate jdbcTemplate;

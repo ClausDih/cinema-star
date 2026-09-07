@@ -1,6 +1,7 @@
 import {useState} from "react";
 import styles from './FormularioFilme.module.css'
 
+
 function FormularioFilme() {
     const [titulo, setTitulo] = useState('')
     const [diretor, setDiretor] = useState('')
@@ -11,11 +12,19 @@ function FormularioFilme() {
     function cadastrarFilme(event) {
         event.preventDefault()   /*não p osso esquecer que isso serve pra não envia e não recarrega a pág*/
 
-        console.log(titulo)
-        console.log(diretor)
-        console.log(anoLancamento)
-        console.log(genero)
-        console.log(nota)
+        fetch('http://localhost:8080/filmes', {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                titulo: titulo,
+                diretor: diretor,
+                anoLancamento: anoLancamento,
+                genero: genero,
+                nota: nota
+            })
+        })
     }
 
     return (
@@ -31,13 +40,13 @@ function FormularioFilme() {
                        onChange={(event) => setDiretor(event.target.value)} />
                 <label type="number">Ano de Lançamento</label>
                 <input id="anoLancamento" type="number" placeholder="Ano de lançamento" value={anoLancamento}
-                        onChange={(event) => setAnoLancamento(event.target.value)}/>
+                        onChange={(event) => setAnoLancamento(Number(event.target.value))}/>
                 <label type="text">Gênero</label>
                 <input id="genero" type="text" placeholder="Digite o Gênero" value={genero}
                         onChange={(event => setGenero(event.target.value))}/>
                 <label type="number">Nota</label>
                 <input id="nota" type="number" placeholder="Nota" value={nota}
-                        onChange={(event => setNota(event.target.value))}/>
+                        onChange={(event => setNota(Number(event.target.value)))}/>
 
                 <button type="submit">Cadatsrar filme</button>
             </form>
