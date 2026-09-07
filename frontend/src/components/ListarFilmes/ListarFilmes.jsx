@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";  /*faça um GET para buscar os filmes*/
+import CardFilme from "../CardFilme/CardFilme"
 
-function ListaFilmes() {
+
+function ListarFilmes() {
 
     const [filmes, setFilmes] = useState([])
 
@@ -19,16 +21,10 @@ function ListaFilmes() {
             <h2>Filmes cadastrados</h2>
 
             {filmes.map((filme) => (
-                <div key={filme.id}>
-                    <h3>{filme.titulo}</h3>
-                    <p>Diretor: {filme.diretor}</p>
-                    <p>Ano: {filme.anoLancamento}</p>
-                    <p>Gênero: {filme.genero}</p>
-                    <p>Nota: {filme.nota}</p>
-                </div>
+                <CardFilme key={filme.id} filme={filme} />
             ))}
         </div>
     )
 }
 
-export default ListaFilmes
+export default ListarFilmes
