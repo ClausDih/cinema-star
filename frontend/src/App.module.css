@@ -1,0 +1,17 @@
+.app {
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.titulo h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.titulo p {
+    font-size: 20px;
+}
