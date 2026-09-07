@@ -25,6 +25,13 @@ function FormularioFilme() {
                 nota: nota
             })
         })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Erro ao cadastrar filme')
+                }
+
+                return response.json()
+            })
     }
 
     return (
@@ -43,12 +50,12 @@ function FormularioFilme() {
                         onChange={(event) => setAnoLancamento(Number(event.target.value))}/>
                 <label type="text">Gênero</label>
                 <input id="genero" type="text" placeholder="Digite o Gênero" value={genero}
-                        onChange={(event => setGenero(event.target.value))}/>
+                        onChange={(event) => setGenero(event.target.value)}/>
                 <label type="number">Nota</label>
                 <input id="nota" type="number" placeholder="Nota" value={nota}
-                        onChange={(event => setNota(Number(event.target.value)))}/>
+                        onChange={(event) => setNota(Number(event.target.value))}/>
 
-                <button type="submit">Cadatsrar filme</button>
+                <button type="submit">Cadastrar filme</button>
             </form>
         </div>
     )
