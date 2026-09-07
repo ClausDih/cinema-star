@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";  /*faça um GET para buscar os filmes*/
 import CardFilme from "../CardFilme/CardFilme"
+import styles from './ListarFilmes.module.css'
 
 
 function ListarFilmes() {
@@ -18,11 +19,13 @@ function ListarFilmes() {
 
     return (
         <div>
-            <h2>Filmes cadastrados</h2>
+           <h2>Filmes cadastrados</h2>
 
-            {filmes.map((filme) => (
-                <CardFilme key={filme.id} filme={filme} />
-            ))}
+            <div className={styles.lista}>
+                {filmes.map((filme) => (
+                    <CardFilme key={filme.id} filme={filme} />
+                ))}
+            </div>
         </div>
     )
 }
