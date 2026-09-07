@@ -1,5 +1,6 @@
 import styles from './App.module.css'
 import FormularioFilme from './components/FormularioFilme/FormularioFilme'
+import ListarFilmes from './components/ListarFilmes/ListarFilmes'
 
 function App() {
     return (
@@ -9,6 +10,8 @@ function App() {
                 <p>Meu catálogo de filmes</p>
 
                 <FormularioFilme />
+
+                <ListarFilmes/>
             </div>
         </div>
     )
