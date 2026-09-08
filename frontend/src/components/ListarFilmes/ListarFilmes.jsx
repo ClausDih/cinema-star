@@ -8,13 +8,17 @@ function ListarFilmes() {
     const [filmes, setFilmes] = useState([])
 
 
-    useEffect(() => {    /* faz o get qdo o componente é carregado*/
-        fetch('http://localhost:8080/filmes')
+    useEffect(() => {
+        fetch('http://localhost:8080/filmes')/* faz o get qdo o componente é carregado*/
             .then((response) => response.json())
             .then((dados) => {
                 setFilmes(dados)
             })
     }, [])
+
+    function excluirFilme(id) {
+        setFilmes(filmes.filter((filme) => filme.id !== id))
+    }
 
     return (
         <div>
@@ -22,7 +26,10 @@ function ListarFilmes() {
 
             <div className={styles.lista}>
                 {filmes.map((filme) => (
-                    <CardFilme key={filme.id} filme={filme} />
+                    <CardFilme
+                        key={filme.id}
+                        filme={filme}
+                    aoExcluir={() => excluirFilme(filme.id)} />
                 ))}
             </div>
         </div>

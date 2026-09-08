@@ -1,28 +1,54 @@
 .app {
     min-height: 100vh;
-    padding: 20px;
+    background-color: #111111;
 }
 
-.titulo {
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #111111;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background-image: url('/cinema.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-.titulo h1 {
-    font-size: 56px;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
+.hero h2 {
+    font-size: 48px;
+    letter-spacing: 4px;
 }
 
-.titulo p {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.titulo button {
+.hero button {
     padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
 }
-
 
 

@@ -2,7 +2,7 @@ import {useState} from "react";
 import styles from './FormularioFilme.module.css'
 
 
-function FormularioFilme() {
+function FormularioFilme({aoCadastrar}) {
     const [titulo, setTitulo] = useState('')
     const [diretor, setDiretor] = useState('')
     const [anoLancamento, setAnoLancamento] = useState('')
@@ -40,6 +40,7 @@ function FormularioFilme() {
                 setMensagem('Filme cadastrado com sucesso!')
                 setErro('')
                 setCarregando(false)
+                aoCadastrar(filme)
             })
             .catch(() => {
                 setErro('Não foi possível cadastrar o filme.')
