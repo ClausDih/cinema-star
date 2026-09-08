@@ -1,18 +1,11 @@
 package school.sptech.cinema_star;
 
-import jdk.javadoc.doclet.Reporter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 import java.sql.PreparedStatement;
@@ -114,7 +107,7 @@ public class CinemaStarController {
                 );
 
     String sqlBuscar = "SELECT * FROM cinema WHERE id = ?";
-    CinemaStar filme = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(CinemaStar.class), id);
+    CinemaStar filme = jdbcTemplate.queryForObject(sqlBuscar, new BeanPropertyRowMapper<>(CinemaStar.class), id);
 
     return ResponseEntity.status(200).body(filme);
 
