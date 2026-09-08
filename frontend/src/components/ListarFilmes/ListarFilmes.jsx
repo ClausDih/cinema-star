@@ -8,11 +8,10 @@ function ListarFilmes() {
     const [filmes, setFilmes] = useState([])
 
 
-    useEffect(() => {
+    useEffect(() => {    /* faz o get qdo o componente é carregado*/
         fetch('http://localhost:8080/filmes')
             .then((response) => response.json())
             .then((dados) => {
-                console.log(dados)
                 setFilmes(dados)
             })
     }, [])

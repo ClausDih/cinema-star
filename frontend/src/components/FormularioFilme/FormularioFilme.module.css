@@ -1,5 +1,10 @@
 .formulario {
-    padding: 20px;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    border: 1px solid #444444;
+    border-radius: 12px;
+    background-color: #222222;
 }
 
 .formulario h2 {
@@ -8,16 +13,27 @@
 
 .formulario input {
     display: block;
-    margin: 0 auto 10px;
+    width: 100%;
+    margin: 0 0 15px;
     padding: 10px;
+    border: 1px solid #555555;
+    border-radius: 6px;
 }
 
-.form {
-    align-content: center;
-}
 
 .formulario label {
     display: block;
     text-align: center;
 }
+
+.formulario button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 
