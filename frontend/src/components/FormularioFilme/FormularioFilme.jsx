@@ -14,7 +14,7 @@ function FormularioFilme() {
 
     function cadastrarFilme(event) {
         // event.preventDefault()   /*serve cancelar o comportamento pd de carregamento automatico da pág, precisando recarregar pra mostrar a info cadastrada*/
-        setCarregando(true)
+        // setCarregando(true)
 
         fetch('http://localhost:8080/filmes', {
             method: 'POST',

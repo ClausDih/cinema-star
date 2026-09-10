@@ -1,3 +1,26 @@
+# Como Rodar a Aplicação
+# CinemaStar
+
+# Frontend (React) - `localhost:5173`
+1. Acesse a pasta do frontend
+2. Abra o terminal
+3. Instale as dependências e inicie
+   ```bash
+   npm install && npm run dev
+   ```
+
+# Backend (Spring Boot) - `localhost:8080`
+1. Acesse a pasta do backend:
+   ```bash
+   cd pasta-do-backend
+   ```
+2. Abra a classe CinemaStarApplication
+    ```
+   Run ou Ctrl+Shift+F10
+   ```
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
