@@ -13,7 +13,7 @@ function FormularioFilme() {
     const [erro, setErro] = useState('')
 
     function cadastrarFilme(event) {
-        event.preventDefault()   /*não p osso esquecer que isso serve pra não envia e não recarrega a pág*/
+        // event.preventDefault()   /*serve cancelar o comportamento pd de carregamento automatico da pág, precisando recarregar pra mostrar a info cadastrada*/
         setCarregando(true)
 
         fetch('http://localhost:8080/filmes', {
@@ -29,6 +29,7 @@ function FormularioFilme() {
                 nota: nota
             })
         })
+
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Erro ao cadastrar filme')

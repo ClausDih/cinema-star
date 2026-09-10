@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.PreparedStatement;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/filmes")
-@CrossOrigin(origins = "http://localhost:5173")
 public class CinemaStarController {
 
     private final JdbcTemplate jdbcTemplate;
@@ -51,10 +51,10 @@ public class CinemaStarController {
     public ResponseEntity<CinemaStar> cadastrarFilme(@RequestBody CinemaStar novoFilme) {
 
         if(novoFilme.getTitulo() == null || novoFilme.getTitulo().isBlank() ||
-            novoFilme.getDiretor() == null || novoFilme.getDiretor().isBlank() ||
-            novoFilme.getGenero() == null || novoFilme.getGenero().isBlank() ||
-            novoFilme.getAnoLancamento() == null || novoFilme.getAnoLancamento() <1888 ||
-                    novoFilme.getNota() == null || novoFilme.getNota() <0 || novoFilme.getNota() > 10) {
+                novoFilme.getDiretor() == null || novoFilme.getDiretor().isBlank() ||
+                novoFilme.getGenero() == null || novoFilme.getGenero().isBlank() ||
+                novoFilme.getAnoLancamento() == null || novoFilme.getAnoLancamento() <1888 ||
+                novoFilme.getNota() == null || novoFilme.getNota() <0 || novoFilme.getNota() > 10) {
             return ResponseEntity.status(400).build();
         }
         String sqlAdicionar = "INSERT INTO cinema (titulo, diretor, ano_lancamento, genero, nota) VALUES (?, ?, ?, ?, ?)";
@@ -96,7 +96,7 @@ public class CinemaStarController {
             return ResponseEntity.status(400).build();
         }
 
-    String sqlAtualizar = "UPDATE cinema SET titulo = ?, diretor = ?, ano_lancamento = ?, genero = ?, nota = ? WHERE id = ?";
+        String sqlAtualizar = "UPDATE cinema SET titulo = ?, diretor = ?, ano_lancamento = ?, genero = ?, nota = ? WHERE id = ?";
         jdbcTemplate.update(sqlAtualizar,
                 filmeAtualizado.getTitulo(),
                 filmeAtualizado.getDiretor(),
@@ -104,12 +104,12 @@ public class CinemaStarController {
                 filmeAtualizado.getGenero(),
                 filmeAtualizado.getNota(),
                 id
-                );
+        );
 
-    String sqlBuscar = "SELECT * FROM cinema WHERE id = ?";
-    CinemaStar filme = jdbcTemplate.queryForObject(sqlBuscar, new BeanPropertyRowMapper<>(CinemaStar.class), id);
+        String sqlBuscar = "SELECT * FROM cinema WHERE id = ?";
+        CinemaStar filme = jdbcTemplate.queryForObject(sqlBuscar, new BeanPropertyRowMapper<>(CinemaStar.class), id);
 
-    return ResponseEntity.status(200).body(filme);
+        return ResponseEntity.status(200).body(filme);
 
     }
 
@@ -125,7 +125,7 @@ public class CinemaStarController {
         }
 
         String sqlRemover = "DELETE FROM cinema WHERE id = ?";
-                jdbcTemplate.update(sqlRemover, id);
+        jdbcTemplate.update(sqlRemover, id);
 
         return ResponseEntity.status(204).build();
 

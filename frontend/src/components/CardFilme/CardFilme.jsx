@@ -23,6 +23,12 @@ function CardFilme({ filme, aoExcluir }) {
             <button onClick={excluirFilme}>Excluir</button>
         </div>
     )
+
+
+
+
 }
+
+
 
 export default CardFilme
